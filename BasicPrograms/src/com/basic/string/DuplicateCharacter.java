@@ -1,6 +1,9 @@
 package com.basic.string;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DuplicateCharacter {
 
@@ -9,10 +12,21 @@ public class DuplicateCharacter {
 		System.out.println("Enter String:");
 		String str=sc.nextLine();
 		
-		char arr[]=str.toCharArray();
-		
-		for(int i=0;i<str.length();i++){
-			
+		char charArr[]=str.toCharArray();
+		Map<Character,Integer> map=new HashMap<Character,Integer>();
+		for(Character ch:charArr){
+			if(map.containsKey(ch)){
+				map.put(ch, map.get(ch)+1);
+			}
+			else {
+				map.put(ch, 1);
+			}
 		}
+		Set<Map.Entry<Character,Integer>> entrySet=map.entrySet();
+		for(Map.Entry<Character,Integer> entry: entrySet){
+			System.out.println(entry.getKey()+":"+entry.getValue());
+		}
+		
+		
 	}
 }
