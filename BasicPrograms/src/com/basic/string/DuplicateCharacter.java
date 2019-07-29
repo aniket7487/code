@@ -24,7 +24,9 @@ public class DuplicateCharacter {
 		}
 		Set<Map.Entry<Character,Integer>> entrySet=map.entrySet();
 		for(Map.Entry<Character,Integer> entry: entrySet){
-			System.out.println(entry.getKey()+":"+entry.getValue());
+			if(entry.getValue()>1){
+				System.out.println(entry.getKey()+":"+entry.getValue());
+			}
 		}
 		
 		
